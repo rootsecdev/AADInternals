@@ -97,15 +97,6 @@ function Invoke-ReconAsOutsider
         [Switch]$Single,
         [Switch]$GetRelayingParties
     )
-    Process
-    {
-        if([string]::IsNullOrEmpty($DomainName))
-        {
-            $DomainName = $UserName.Split("@")[1]
-
-            Write-Verbose "Checking CBA status."
-            $tenantCBA = HasCBA -UserName $UserName
-        }
         Write-Verbose "Checking if the domain $DomainName is registered to Azure AD"
         $tenantId =     Get-TenantID -Domain $DomainName
         if([string]::IsNullOrEmpty($tenantId))
