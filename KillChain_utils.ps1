@@ -263,7 +263,7 @@ function DoesUserExists
         # Get Tenant Region subscope from Open ID configuration if not provided
         if([string]::IsNullOrEmpty($SubScope))
         {
-            $SubScope = Get-TenantSubscope -Domain $User.Split("@")[1]
+            $SubScope = Get-TenantSubscope -Domain $DomainName
         }
 
         if($Method -eq "Normal")
